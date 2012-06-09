@@ -42,10 +42,15 @@ class AppController extends Controller {
     public function beforeRender(){
         parent::beforeRender();
         $loggedInUserId = $this->loggedInUserId();
-        $this->set(compact('loggedInUserId'));
+        $loggedInUserName = $this->loggedInUserName();
+        $this->set(compact('loggedInUserId','loggedInUserName'));
     }
 
     public function loggedInUserId(){
         return $this->Auth->user('id') != '' ? $this->Auth->user('id') : false;
+    }
+
+    public function loggedInUserName(){
+        return $this->Auth->user('name') != '' ? $this->Auth->user('name') : false;
     }
 }

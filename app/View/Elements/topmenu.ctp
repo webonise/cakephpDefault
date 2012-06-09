@@ -16,7 +16,7 @@
 <?php } else if($this->params['controller'] != 'users' && $this->params['action'] != 'login') { ?>
 <div class="btn-group pull-right">
     <?php
-    echo $this->Html->link(__('Sign In'), array('controller' => 'users', 'action' => 'logout'), array('escape' => false,'class' => 'btn dropdown-toggle'));
+        echo $this->Html->link(__('Sign In'), array('controller' => 'users', 'action' => 'login'), array('escape' => false,'class' => 'btn dropdown-toggle'));
     ?>
 </div>
 <?php } ?>
