@@ -1,4 +1,4 @@
-set :stages, %w(staging testing)
+set :stages, %w(staging testing production)
 set :default_stage, "testing"
 require 'capistrano/ext/multistage'
 
