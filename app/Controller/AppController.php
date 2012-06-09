@@ -32,4 +32,20 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+    public $components = array('Auth');
+
+    public function beforeFilter(){
+        parent::beforeFilter();
+    }
+
+    public function beforeRender(){
+        parent::beforeRender();
+        $loggedInUserId = $this->loggedInUserId();
+        $this->set(compact('loggedInUserId'));
+    }
+
+    public function loggedInUserId(){
+        return $this->Auth->user('id') != '' ? $this->Auth->user('id') : false;
+    }
 }
